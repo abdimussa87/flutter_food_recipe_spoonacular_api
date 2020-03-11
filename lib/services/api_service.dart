@@ -4,18 +4,19 @@ import 'dart:io';
 
 import 'package:food_recipe_spoonacular_api/models/meal_plan_model.dart';
 import 'package:food_recipe_spoonacular_api/models/recipe.dart';
+import 'package:food_recipe_spoonacular_api/utilities/keys.dart';
 import 'package:http/http.dart' as http ;
 class APIService {
   APIService._instantiate();
   static final APIService instance = APIService._instantiate();
-  final String _baseURL = "https://api.spoonacular.com";
-  static const String API_KEY = "2057b34fbdbf4c349f28f14889f37706";
+  final String _baseURL = "api.spoonacular.com";
+  
 
   Future<MealPlan> generateMealPlan({int targetCalories, String diet}) async {
     if (diet == 'None') diet = '';
-    Map<String, dynamic> parameters = {
+    Map<String, String> parameters = {
       'timeFrame': 'day',
-      'targetCalories': targetCalories,
+      'targetCalories': targetCalories.toString(),
       'diet': diet,
       'apiKey': API_KEY,
     };

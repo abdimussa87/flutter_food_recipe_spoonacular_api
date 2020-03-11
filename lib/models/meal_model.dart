@@ -7,6 +7,6 @@ class Meal{
   factory Meal.fromJson(Map<String,dynamic> json){
     return Meal(id: json['id'],
     title: json['title'],
-    imageUrl:  "https://api.spoonacular.com/recipeImages/" + json['image']);
+    imageUrl:  "https://spoonacular.com/recipeImages/" + json['image']);
   }
 }
